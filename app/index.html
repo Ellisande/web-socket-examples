@@ -2,68 +2,27 @@
 <html lang="en" ng-app="standup">
 <head>
   <meta charset="utf-8">
-  <title>Lean Coffee</title>
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+  <title>Web Socket Examples</title>
+  <link rel="stylesheet" href="lib/pure.min.css"/>
   <link rel="stylesheet" href="css/app.css"/>
-  <style type="text/css">
-    body {padding-top:65px;}
-  </style>
-  <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css"/>
 </head>
 <body>
 <body>
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <a class="btn btn-navbar" data-toggle="collapse"
-          data-target=".nav-collapse"> <span class="icon-bar"></span> <span
-          class="icon-bar"></span> <span class="icon-bar"></span>
-        </a> 
-         <a class="brand" href="#">
-                 Lean Coffee
-         </a>
-        <div class="nav-collapse">
-          <ul class="nav">
-            <!-- Removed temporarily while focusing on single meeting principle -->
-            <!-- <li><a href="#/new">New Meeting</a></li> -->
-<!--            <li><a class="inline" href="#/meeting/unit">Current Meeting: Unit Meeting</a></li>-->
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- Body Section -->
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span2 sidebar-nav">
-        <!-- start sidebar -->
-        <div class="well">
-          <ul class="nav nav-list" ng-controller="MeetingListCtrl">
-            <li class="nav-header">Active Meetings</li>
-            <!--change to ng-repeats-->
-            <li ng-repeat="meeting in meetings | orderBy:meeting.participants.length"  ng-show="meeting.participants.length>0">
-              <a href="#/meeting/{{meeting.name}}" ng-click="leave()">{{meeting.name}}: {{meeting.participants.length}}</a>
-            </li>
-            <li class="nav-header">Inactive Meetings</li>
-            <!--change to ng-repeats-->
-            <li ng-repeat="inactiveMeeting in meetings" ng-show="inactiveMeeting.participants.length<1">
-              <a href="#/meeting/{{inactiveMeeting.name}}" class="unavailable" ng-click="leave()">{{inactiveMeeting.name}}</a>
-            </li>
-          </ul>
-        </div>
-        <!-- End sidebar -->
-      </div>
+  <div class="pure-g-r">
       <!-- start body section -->
-      <div class="span10">
+      <div class="pure-u-1-8">&nbsp;</div>
+      <div class="pure-u-6-8">
         <div ng-view></div>
       </div>
+      <div class="pure-u-1-8" >&nbsp;</div>
       <!-- end body section -->
     </div>
   </div>
 
   <hr>
   <footer>
-    <p>© Justin Dragos 2013</p>
+    <p>&nbsp;</p>
   </footer>
 
   <!-- In production use:
