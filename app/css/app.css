@@ -2,20 +2,20 @@ a {
     cursor: pointer;
 }
 
-div.countdown-menu p{
+.countdown-menu p{
   padding-right: 5px;
 }
 
-div.author {
+.author {
   color: dimgrey;
 }
 
-div.rundown label{
+.rundown label{
   color: dimgrey;
   font-weight: bold;
 }
 
-div.comment {
+.comment {
   border-bottom: 1px solid #AAA;
   margin-bottom: 5px;
 }
@@ -36,33 +36,13 @@ img.brand-image{
 	font-size: 20px;
 }
 
-div.by-line{
+.by-line, footer{
 	font-size: x-small;
 	color: dimgrey;
 	font-weight: bold;
 }
 
-div.rundown label{
-	display: inline;
-	font-variant: small-caps;
-}
-
-div.rundown span{
-	font-weight: bold;
-}
-
-div.rundown span.roadblocks{
-	color: #bf0f0f;
-}
-
-div.rundown span.today {
-	color: #1e9f11;
-}
-
-div.rundown span.yesterday {
-	color: #1c1cc3;
-}
-a.unavailable {
+.unavailable {
     color: dimgrey;
 }
 
@@ -80,33 +60,8 @@ a.unavailable {
     color: rgba(255, 0, 0, 0.6);
 }
 
-.welcome {
-/*
-    background-image: url(../images/coffee_cup.png);
-    background-repeat: no-repeat;
-    background-position: center;
-*/
-}
-
-.jumbotron {
-    
-}
-
 .hero-unit {
-    background-image: url(../images/coffee_cup.png);
+    /*background-image: url(../images/coffee_cup.png);*/
     background-repeat: no-repeat;
     background-position: right;
-}
-
-
-
-.sidebar-nav {
-    
-}
-
-.meeting-header {
-    font-weight: bold;
-    color: dimgrey;
-    font-variant: small-caps;
-    font-size: 1.3em;
 }
