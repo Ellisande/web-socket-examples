@@ -1,12 +1,19 @@
 
 var socket = function (socket) {
-
-      // join a room.
-      socket.on('subscribe', function(data){
-        socket.join(data.name);
-        roomName = data.name;
-        initialize(data.name);
-      });
+    var price = 100;
+    var lockInTime = 60000;
+    var onTimeout = function(){
+        price = price + ((1 * Math.random()) - (1 * Math.random()));
+        socket.emit('updatePrice', {
+            price: price
+        });
+        
+        setTimeout(onTimeout, 100);
+    };
+    
+    setTimeout(onTimeout(), 100);
+    
+    
 };
 
 module.exports = socket;
