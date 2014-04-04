@@ -11,7 +11,7 @@ function MeetingListCtrl($scope, socket){
     }
 }
 
-function HomeCtrl($scope, $location, socket) {
+function HomeCtrl($scope, $location, socket, timerService) {
     socket.connect();
     $scope.goldOunces = {}
     $scope.goldOunces.total = 0.00;
@@ -28,21 +28,19 @@ function HomeCtrl($scope, $location, socket) {
     });
     
     socket.on('updatePrice', function(data){
-        if(!$scope.lockedIn){
+        if($scope.timer.expired){
             $scope.pricePerOunce = data.price;
         }
     });
-}
-
-function TimerCtrl($scope, timerService){
+    
     $scope.duration = moment.duration(0);
     $scope.timer = timerService($scope);
     $scope.start = function(){
-        $scope.timer.start(60000);
+        $scope.timer.start();
 //        $scope.timer.start(20000);
     };
     
     $scope.stop = function(){
         $scope.timer.stop();
     }
-} 
+}

@@ -42,14 +42,14 @@ app
 }). 
 factory('timerService', function(socket, $timeout){
     return function($scope){
-        $scope.duration = moment.duration(3, 'minutes');
+        $scope.duration = moment.duration(30, 'seconds');
         var currentTimeout = {};
         
         var startTimeout = function(timer){
             var onTimeout = function(){
                 timer.expired = moment().isAfter(timer.endTime);
                 if(timer.expired){
-                    $scope.duration = moment.duration(3, 'minutes');
+                    $scope.duration = moment.duration(30, 'seconds');
                 } else {
                     $scope.duration = timer.currentDuration();
                     currentTimeout = $timeout(onTimeout,1000);
@@ -64,13 +64,11 @@ factory('timerService', function(socket, $timeout){
               return moment.duration(this.endTime.diff(moment()));  
             },
             start: function(duration){
-                socket.emit('timer:start',{
-                    duration:duration
-                });
+                socket.emit('timer:start',{});
             },
 
             stop: function(){
-                $scope.duration = moment.duration(3,'minutes');
+                $scope.duration = moment.duration(1,'minutes');
                 $timeout.cancel(currentTimeout);
                 timer.expired = true;
                 socket.emit('timer:stop',{});
@@ -87,9 +85,7 @@ factory('timerService', function(socket, $timeout){
         });
 
         socket.on('timer:stop', function(){
-            if(!timer.expired){
-                timer.stop()
-            };
+            timer.stop()
         });
         return timer;   
     };

@@ -8,11 +8,11 @@
         </fieldset>
     </form>
     <div class="pure-u-1">
-            <div class="pure-u-1" ng-show="lockedIn" ng-class="low: duration.asSeconds() < 10" ng-controller="TimerCtrl">
+            <div class="pure-u-1" ng-show="!timer.expired" ng-class="{low: duration.asSeconds() < 10}" >
                 <span class="timer" >{{duration.minutes() | timer}}:{{duration.seconds() | timer}}</span><span> Price Lock In Time Remaining </span>
             </div>
-            <button class="pure-button" ng-disabled="lockedIn" ng-click="lockedIn=true">Lock in Rate</button>
-            <button class="pure-button" ng-disabled="!lockedIn" ng-click="lockedIn=false">Buy now</button>
+            <button class="pure-button" ng-disabled="!timer.expired" ng-click="start();">Lock in Rate</button>
+            <button class="pure-button" ng-disabled="timer.expired">Buy now</button>
     </div>
 </div>
 
