@@ -1,33 +1,19 @@
-<div class="row-fluid">
-	<div class="hero-unit">
-	    <h1 class="welcome">Welcome to Lean Coffee!</h1>
-	    <p>Lean Coffee is the fast, effective way to maxmize the potential of your meetings!</p>
-	</div>
-	<div class="span3">
-	    <h3>How does it work?</h3>
-	    <p>Lean Coffee has four simple steps:</p>
-	    <ol>
-	       <li>Suggest Topics</li>
-	       <li>Vote on Topics</li>
-	       <li>Talk About Topics</li>
-	       <li>Vote to Keep Talking</li>
-	    </ol>
-    </div>
-	<div class="span3">
-	    <h3>Who should use it?</h3>
-	    <p>Lorem ipsum</p>
-	</div>
-	<div class="span4">
-	    <h3>How do I get started?</h3>
-	    <p>Getting started is simple! Either choose an existing meeting on the left side or create your own meeting!</p>
-	    <div>
-	        <form class="form-search" id="create-form" name="create-form" ng-submit="create()">
-	            <fieldset>
-                    <input type="text" name="meeting-name" class="search-query" ng-model="meetingName" placeholder="Meeting Name">
-                    <button class="btn btn-success">Create a Meeting!</button>
-	            </fieldset>
-	        </form>
-	    </div>
-	</div>
+<div class="pure-u-1" ng-repeat="seatRows in allSeats" ng-mousemove="stealMouse()">
+	<span ng-repeat="seat in seatRows">
+	    <svg height="40" width="40">
+            <circle 
+                cx="20" 
+                cy="20" 
+                r="10" 
+                stroke="black" 
+                stroke-width="3" 
+                class="seat" 
+                ng-class="{available: seat.available && !seat.selected, unavailable: !seat.available, selected: seat.selected }" 
+                ng-click="toggle(seat)" 
+                snoop
+                />
+            Sorry, your browser does not support inline SVG.  
+        </svg> 
+	</span>
 </div>
 
