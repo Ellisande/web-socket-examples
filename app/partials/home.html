@@ -1,18 +1,29 @@
 <div class="pure-u-1" ng-init="lockedIn = false;">
-    <form action="" class="pure-form pure-u-1" ng-init="goldPrice = 100.00">
+    <form action="" class="pure-form pure-form-aligned" ng-init="goldPrice = 100.00">
         <fieldset>
             <legend>How much gold would you like?</legend>
-            <label for="quanity">Quanity</label><input type="number" name="quantity" ng-model="goldOunces.quantity">
-            <span class="price">{{pricePerOunce | number:2}} / ounce</span>
-            <span class="total">Total: {{goldOunces.total | number:2}}</span>
+            <div class="pure-control-group">
+                <label for="quanity">Ounces of Gold</label>
+                <input type="number" name="quantity" ng-model="goldOunces.quantity">
+                <span class="price">{{pricePerOunce | currency}} / ounce</span>
+                <span class="total" ng-show="goldOunces.total > 0">Total: {{goldOunces.total | currency}}</span>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div class="pure-control-group">
+                <label for="quanity">Gold Bars</label>
+                <input type="number" name="quantity" ng-model="goldBars.quantity">
+                <span class="price">{{goldBars.pricePerBar | currency}} / bar</span>
+                <span class="total" ng-show="goldBars.total > 0">Total: {{goldBars.total | currency}}</span>
+            </div>
         </fieldset>
     </form>
     <div class="pure-u-1">
-            <div class="pure-u-1" ng-show="!timer.expired" ng-class="{low: duration.asSeconds() < 10}" >
-                <span class="timer" >{{duration.minutes() | timer}}:{{duration.seconds() | timer}}</span><span> Price Lock In Time Remaining </span>
-            </div>
-            <button class="pure-button" ng-disabled="!timer.expired" ng-click="start();">Lock in Rate</button>
-            <button class="pure-button" ng-disabled="timer.expired">Buy now</button>
+            <button class="pure-button" ng-disabled="!timer.expired" ng-click="start();">
+                <span ng-show="timer.expired">Lock in Rate</span>
+                <span class="timer" ng-show="!timer.expired">{{duration.minutes() | timer}}:{{duration.seconds() | timer}}</span>
+            </button>
+            <button class="pure-button" ng-disabled="timer.expired">Buy now for {{cart.total | currency}}</button>
     </div>
 </div>
 
