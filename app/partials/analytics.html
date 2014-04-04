@@ -9,7 +9,7 @@
 </div>
 <div class="pure-u-1" ng-init="consideration = '-consideration'">
     <h2>Most Popular Seats</h2>
-    <div ng-repeat="seat in seats | orderBy:consideration | limitTo:10">
-        <h5>{{seat.id.row}}-{{seat.id.seat}} : {{seat.consideration}}</h5>
-    </div>
+    <ul ng-repeat="seat in seats | orderBy:consideration | limitTo:10">
+        <li>{{seat.id.row}}-{{seat.id.seat}} : {{seat.consideration}}</li>
+    </ul>
 </div>
