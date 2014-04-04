@@ -27,11 +27,14 @@
         </fieldset>
     </form>
     <div class="pure-u-1">
-            <button class="pure-button" ng-disabled="!timer.expired" ng-click="start();">
-                <span ng-show="timer.expired">Lock in Rate</span>
-                <span class="timer" ng-show="!timer.expired">{{duration.minutes() | timer}}:{{duration.seconds() | timer}}</span>
+            <button class="pure-button" ng-disabled="!priceLockTimer.expired" ng-click="lockIn();">
+                <span ng-show="priceLockTimer.expired">Lock in Rate</span>
+                <span class="timer" ng-show="!priceLockTimer.expired">{{duration.minutes() | timer}}:{{duration.seconds() | timer}}</span>
             </button>
-            <button class="pure-button" ng-disabled="timer.expired">Buy now for {{cart.total | currency}}</button>
+            <button class="pure-button" ng-disabled="priceLockTimer.expired">Buy now for {{cart.total | currency}}</button>
+            <div class="message">
+                <span>{{unlockMessage}}</span>
+            </div>
     </div>
 </div>
 

@@ -1,17 +1,6 @@
 'use strict';
 
-/* Controllers */
-function MeetingListCtrl($scope, socket){
-    socket.connect();
-    socket.on('meetings:update', function(meetings){
-       $scope.meetings = meetings.meetings;
-    });
-    $scope.leave = function(){
-        socket.emit('unsubscribe');
-    }
-}
-
-function HomeCtrl($scope, $location, socket, timerService) {
+function HomeCtrl($scope, $location, socket, priceLockService) {
     socket.connect();
     $scope.goldOunces = {}
     $scope.goldOunces.total = 0.00;
@@ -68,20 +57,28 @@ function HomeCtrl($scope, $location, socket, timerService) {
         this.total = sum;
     }
     
-    socket.on('updatePrice', function(data){
-        if($scope.timer.expired){
+    socket.on('price:update', function(data){
+        if($scope.priceLockTimer.expired){
             $scope.pricePerOunce = data.price;
         }
     });
     
+    socket.on('price:unlock', function(data){
+        $scope.unlockMessage = data.message;
+    });
+    
     $scope.duration = moment.duration(0);
-    $scope.timer = timerService($scope);
-    $scope.start = function(){
-        $scope.timer.start();
-//        $scope.timer.start(20000);
+    $scope.priceLockTimer = priceLockService($scope);
+    $scope.lockIn = function(){
+        $scope.unlockMessage = undefined;
+        $scope.priceLockTimer.lock($scope.pricePerOunce);
     };
     
     $scope.stop = function(){
-        $scope.timer.stop();
+        $scope.priceLockTimer.unlock();
+    }
+    
+    $scope.purchase = function(){
+        $scope.priceLockTimer.buy($scope.pricePerOunce);
     }
 }

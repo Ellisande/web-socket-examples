@@ -40,7 +40,7 @@ app
     }
   };
 }). 
-factory('timerService', function(socket, $timeout){
+factory('priceLockService', function(socket, $timeout){
     return function($scope){
         $scope.duration = moment.duration(30, 'seconds');
         var currentTimeout = {};
@@ -63,30 +63,40 @@ factory('timerService', function(socket, $timeout){
             currentDuration: function(){
               return moment.duration(this.endTime.diff(moment()));  
             },
-            start: function(duration){
-                socket.emit('timer:start',{});
+            lock: function(price){
+                socket.emit('price:lock',
+                    {
+                        lockedInPrice: price
+                    }
+                );
             },
 
-            stop: function(){
-                $scope.duration = moment.duration(1,'minutes');
+            unlock: function(){
+                $scope.duration = moment.duration(30,'seconds');
                 $timeout.cancel(currentTimeout);
                 timer.expired = true;
-                socket.emit('timer:stop',{});
+                socket.emit('price:unlock',{});
             },
-
+            buy: function(lockedInPrice){
+                socket.emit('purchase', {
+                    lockedInPrice: lockedInPrice
+                });
+            },
             expired: true
         };
 
-        socket.on('timer:start', function(data){
+        socket.on('price:lock', function(data){
             $timeout.cancel(currentTimeout);
             timer.endTime = moment().add(data.duration, 'milliseconds');
             startTimeout(timer);
             timer.expired = false;
         });
 
-        socket.on('timer:stop', function(){
-            timer.stop()
+        socket.on('price:unlock', function(){
+            timer.unlock()
         });
+        
+        
         return timer;   
     };
 });
