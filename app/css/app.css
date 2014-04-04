@@ -1,3 +1,6 @@
+body {
+    margin: 20px;
+}
 a {
     cursor: pointer;
 }
@@ -64,4 +67,40 @@ img.brand-image{
     /*background-image: url(../images/coffee_cup.png);*/
     background-repeat: no-repeat;
     background-position: right;
+}
+
+.available {
+    fill: blue;
+}
+
+.unavailable {
+    fill: grey;
+    stroke: grey;
+}
+
+.selected {
+    fill: green;
+}
+
+.seat {
+    cursor: pointer;
+}
+
+progress {
+    border-radius: 9px;
+}
+
+progress[value] {  
+    background-color: #f3f3f3;  
+    border: 0;  
+    height: 18px;
+    border-radius: 9px;
+}  
+
+progress[value]::-webkit-progress-bar {
+    border-radius: 9px;
+}
+
+progress[value]::-webkit-progress-value {
+    border-radius: 9px;
 }
