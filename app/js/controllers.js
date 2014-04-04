@@ -26,6 +26,13 @@ function HomeCtrl($scope, $location, socket, timerService) {
         this.pricePerBar = $scope.pricePerOunce * 10;
     };
     
+    $scope.goldStatues = {};
+    $scope.goldStatues.total = 0.00;
+    $scope.goldStatues.compute = function(){
+        this.total = this.quantity * 579 * $scope.pricePerOunce;
+        this.pricePerStatue = $scope.pricePerOunce * 579;
+    };
+    
     $scope.$watch('goldOunces', function(){
         $scope.goldOunces.compute();
         $scope.cart.compute();
@@ -34,17 +41,24 @@ function HomeCtrl($scope, $location, socket, timerService) {
     $scope.$watch('goldBars', function(){
         $scope.goldBars.compute();        
         $scope.cart.compute();
+    }, true);    
+    
+    $scope.$watch('goldStatues', function(){
+        $scope.goldStatues.compute();        
+        $scope.cart.compute();
     }, true);
     
     $scope.$watch('pricePerOunce', function(){
         $scope.goldOunces.compute();
         $scope.goldBars.compute();
+        $scope.goldStatues.compute();
         $scope.cart.compute();
     });
     
     $scope.cart = [];
     $scope.cart.push($scope.goldBars);
     $scope.cart.push($scope.goldOunces);
+    $scope.cart.push($scope.goldStatues);
     $scope.cart.total = 0.00;
     $scope.cart.compute = function(){
         var sum = 0;

@@ -3,18 +3,26 @@
         <fieldset>
             <legend>How much gold would you like?</legend>
             <div class="pure-control-group">
-                <label for="quanity">Ounces of Gold</label>
-                <input type="number" name="quantity" ng-model="goldOunces.quantity">
+                <label for="goldOunces.quanity">Ounces of Gold</label>
+                <input type="text" name="goldOunces.quantity" ng-model="goldOunces.quantity" maxlength="3">
                 <span class="price">{{pricePerOunce | currency}} / ounce</span>
                 <span class="total" ng-show="goldOunces.total > 0">Total: {{goldOunces.total | currency}}</span>
             </div>
         </fieldset>
         <fieldset>
             <div class="pure-control-group">
-                <label for="quanity">Gold Bars</label>
-                <input type="number" name="quantity" ng-model="goldBars.quantity">
+                <label for="goldBars.quanity">Gold Bars</label>
+                <input type="text" name="goldBars.quantity" ng-model="goldBars.quantity" min="0">
                 <span class="price">{{goldBars.pricePerBar | currency}} / bar</span>
                 <span class="total" ng-show="goldBars.total > 0">Total: {{goldBars.total | currency}}</span>
+            </div>
+        </fieldset>        
+        <fieldset>
+            <div class="pure-control-group">
+                <label for="goldStatues.quanity">Golden Mantis Shrimp Statues</label>
+                <input type="text" name="goldStatues.quantity" ng-model="goldStatues.quantity" min="0">
+                <span class="price">{{goldStatues.pricePerStatue | currency}} / statue</span>
+                <span class="total" ng-show="goldStatues.total > 0">Total: {{goldStatues.total | currency}}</span>
             </div>
         </fieldset>
     </form>
