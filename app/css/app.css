@@ -56,7 +56,7 @@ img.brand-image{
     padding-right: 50%;
 }
 
-.timer.low {
+.low .timer {
     color: rgba(255, 0, 0, 0.6);
 }
 
