@@ -46,7 +46,7 @@ img.brand-image{
     color: dimgrey;
 }
 
-.timer {
+.timer{
     color: rgba(255, 0, 0, 1);
     font-size: 1em;
     font-weight: bold;
@@ -68,5 +68,11 @@ legend {
 
 label {
     font-size: 1.2em;
+    font-weight: bold;
+}
+
+.message {
+    color: rgba(255, 0, 0, 0.72);
+    margin: 10px;
     font-weight: bold;
 }
