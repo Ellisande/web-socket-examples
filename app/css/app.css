@@ -47,17 +47,13 @@ img.brand-image{
 }
 
 .timer {
-    color: #AAA;
-    font-size: 1.8em;
+    color: rgba(255, 0, 0, 0.6);
+    font-size: 1em;
     font-weight: bold;
 }
 
 .timer li {
     padding-right: 50%;
-}
-
-.low .timer {
-    color: rgba(255, 0, 0, 0.6);
 }
 
 .hero-unit {
