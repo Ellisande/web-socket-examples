@@ -47,7 +47,7 @@ img.brand-image{
 }
 
 .timer {
-    color: rgba(255, 0, 0, 0.6);
+    color: rgba(255, 0, 0, 1);
     font-size: 1em;
     font-weight: bold;
 }
@@ -60,4 +60,13 @@ img.brand-image{
     /*background-image: url(../images/coffee_cup.png);*/
     background-repeat: no-repeat;
     background-position: right;
+}
+
+legend {
+    font-size: 1.8em;
+}
+
+label {
+    font-size: 1.2em;
+    font-weight: bold;
 }
