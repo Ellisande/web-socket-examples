@@ -273,6 +273,10 @@ main {
     font-size: 1em;
 }
 
+.chatroom .enter-name {
+    display: block;
+}
+
 /* end: chatroom styles */
 
 form.go-bottom {
