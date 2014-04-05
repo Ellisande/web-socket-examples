@@ -1,0 +1,8 @@
+<div class="question">some stuff</div>
+<div class="ask-a-question">
+    <form action="" ng-init="asked = false" ng-click="asked = true">
+        <input type="text" class="chat-message-input" ng-model="myQuestion" ng-show="!asked">
+        <span ng-show="asked">{{myQuestion}}</span>
+    </form>
+</div>
+<div class="response">{{response}}</div>
