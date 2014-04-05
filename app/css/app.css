@@ -180,6 +180,10 @@ main {
 
 .customer .chatroom-messages-holder {
     overflow-y: auto;
+    max-height: 400px;
+    height: auto;
+    background: transparent;
+    border: none;
 }
 .customer .chatroom-activity p {
     margin-top: 10px !important;
