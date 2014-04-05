@@ -2,7 +2,7 @@ var seats = function(){
     var newSeats = [];
     for(var i = 0; i < 5; i++){
         newSeats[i] = [];
-        for(var j = 0; j < i * 5; j++){
+        for(var j = 0; j < (i+1) * 2; j++){
             newSeats[i][j] = {
                 id: {
                     row: i,
