@@ -103,8 +103,8 @@ main {
     -webkit-animation: growout-messages 1000ms 1;
     -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.175);
 }
-.chatroom-messages-holder:before,
-.chatroom-messages-holder:after {
+.representative .chatroom-messages-holder:before,
+.representative .chatroom-messages-holder:after {
     z-index: -1;
     position: absolute;
     content: "";
@@ -131,6 +131,9 @@ main {
 .chatroom-activity {
     overflow-y: auto;
     height: 330px;
+}
+.customer .chatroom-activity {
+    height: 100%;
 }
 .chatroom-messages-holder p.modmessage {
     color: red;
@@ -166,6 +169,104 @@ main {
     -webkit-transform: rotate(3deg);
     right: 10px;
     left: auto;
+}
+.chatroom.customer {
+    width: 25%;
+    display: none;
+}
+.chatroom.customer.activate {
+    display: inline-block;
+}
+
+.customer .chatroom-messages-holder {
+    overflow-y: auto;
+}
+.customer .chatroom-activity p {
+    margin-top: 10px !important;
+}
+.chatroom-messages-holder p.tooltip {
+    position: relative;
+    border: 1px solid #73a7f0;
+    width: 75%;
+    min-height: 40px;
+    margin-left: 20px;
+    padding: 5px 14px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, .7);
+    -webkit-box-shadow: -0px 0px 6px rgba(0, 0, 0, .7);
+    -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, .7);
+}
+.chatroom-messages-holder p.self.tooltip {
+    margin-left: 0;
+    margin-right: 25px;
+}
+.chatroom-messages-holder p.other.tooltip:before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: -8px;
+    top: 15px;
+    width: 14px;
+    height: 14px;
+    border-color: #73a7f0;
+    border-width: 1px;
+    border-style: none none solid solid;
+    background-color: yellow;
+    box-shadow: -2px 2px 0 rgba(0, 0, 0, .5);
+    -webkit-box-shadow: -2px 2px 0 rgba(0, 0, 0, .5);
+    -moz-box-shadow: -2px 2px 3.5px rgba(0, 0, 0, .5);
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+}
+.chatroom-messages-holder p.self.tooltip:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: -8px;
+    width: 14px;
+    height: 14px;
+    border-color: #73a7f0;
+    border-width: 1px;
+    border-style: solid solid none none;
+    background-color: orange;
+    box-shadow: 0 0 0 rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0px 0 0 rgba(0, 0, 0, .5);
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.self {
+    float: right;
+    background: orange;
+    border-radius: 5px;
+    min-height: 20px;
+    padding: 15px;
+    clear: both;
+}
+.other {
+    float: left;
+    background: yellow;
+    border-radius: 5px;
+    min-height: 20px;
+    padding: 15px;
+    clear: both;
+}
+
+.customer form.go-bottom input {
+    background: white;
+    margin-top: 15px;
+}
+
+.customer form.go-bottom label {
+    transition: background 1000ms, color 500ms, top 400ms, bottom 400ms, right 400ms, left 400ms;
+    position: absolute;
+    color: rgb(21, 125, 251);
+    padding: 24px 6px;
+    font-size: 1em;
 }
 
 /* end: chatroom styles */

@@ -104,4 +104,9 @@ function AppCtrl($scope, $location, socket) {
         // clear message box
         $scope.message = '';
     };
+    
+    $scope.openChat = function() {
+        $scope.chatOpened = true;
+    };
+    
 }

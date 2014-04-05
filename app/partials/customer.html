@@ -8,7 +8,30 @@
                 <option>I an enrolled in school</option>
                 <option>I actually go to school</option>
             </select>
-            
+            <a href="" ng-click="openChat()">Why do we care?</a>
+        </form>
+        <article class="chatroom customer" ng-class="{activate: chatOpened}">
+            <label>Who are you?</label>
+            <input ng-model="name">
+            <section class="chatroom-messages">
+                <h3>Messages</h3>
+                <section class="chatroom-messages-holder">
+                    <section class="chatroom-activity">
+                        <p class="tooltip" ng-repeat="message in messages" ng-class="{modmessage: message.user == 'chatroom',self: message.user == name,other: message.user != name}">{{message.user}}: {{message.text}}</p>
+                    </section>
+                </section>
+                <section role="chatroom-send-message">
+                    <form name="sendmessage" ng-submit="sendMessage()" class="go-bottom">
+                        <div>
+                            <input ng-model="message" type="text" required>
+                            <label>Type a message and hit enter:</label>
+                        </div>
+                    </form>
+                </section>
+            </section>
+
+        </article>
+        <form>
             <label>What is your mother's maiden name?</label>
             <input type="text" ng-model="maidenname">
             
@@ -24,28 +47,6 @@
         </form>
         <p>
             Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-            <a href="">Say what?</a>
         </p>
-    </section>
-</article>
-
-<article class="chatroom">
-    <label>Who are you?</label>
-    <input ng-model="name">
-    <section class="chatroom-messages">
-        <h3>Messages</h3>
-        <section class="chatroom-messages-holder">
-            <section class="chatroom-activity">
-                <p ng-repeat="message in messages" ng-class="{modmessage: message.user == 'chatroom'}">{{message.user}}: {{message.text}}</p>
-            </section>
-            <section role="chatroom-send-message">
-                <form name="sendmessage" ng-submit="sendMessage()" class="go-bottom">
-                    <div>
-                        <input ng-model="message" type="text" required>
-                        <label>Type a message and hit enter:</label>
-                    </div>
-                </form>
-            </section>
-        </section>
     </section>
 </article>
