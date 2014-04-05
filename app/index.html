@@ -1,40 +1,42 @@
-<!doctype html>
-<html lang="en" ng-app="standup">
+<!DOCTYPE html>
+<html ng-app="socket-chatting">
+
 <head>
-  <meta charset="utf-8">
-  <title>Web Socket Examples</title>
-  <link rel="stylesheet" href="lib/pure.min.css"/>
-  <link rel="stylesheet" href="css/app.css"/>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <base href="/">
+    <title>Websocket Chatting</title>
+    <link rel="stylesheet" href="/css/app.css">
 </head>
-<body>
-<body>
-  <!-- Body Section -->
-  <div class="pure-g-r">
-      <!-- start body section -->
-      <div class="pure-u-1-8">&nbsp;</div>
-      <div class="pure-u-6-8">
-        <div ng-view></div>
-      </div>
-      <div class="pure-u-1-8" >&nbsp;</div>
-      <!-- end body section -->
-    </div>
-  </div>
 
-  <hr>
-  <footer>
-    <p>&nbsp;</p>
-  </footer>
-
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-  -->
-  <script src="lib/angular/angular.js"></script>
-  <script src="lib/angular/angular-route.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="lib/moment.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
+<body>
+    <header role="banner">
+        <h1>Chatting with Socket.io</h1>
+        <nav class="main-nav" role="main-navigation">
+            <a class="nav-link" href="#/customer-representative">Chat as Representative</a>
+            <a class="nav-link" href="#/customer">Chat as Customer</a>
+        </nav>
+    </header>
+    
+    <main class="pure-g-r" role="main" ng-controller="AppCtrl" ng-view>
+        
+        <!--
+        <section role="change-name">
+            <h3>Change your name</h3>
+            <p>Your current user name is {{name}}</p>
+            <form ng-submit="changeName()">
+                <input ng-model="newName" />
+                <button type="submit">Change Name</button>
+            </form>
+        </section>
+-->
+    </main>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
 </body>
+
 </html>

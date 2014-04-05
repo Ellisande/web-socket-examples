@@ -1,11 +1,13 @@
 'use strict';
 
-/* App Module */
-
-var app = angular.module('standup', ['standupFilters','ngRoute']).
-  config(['$routeProvider', function($routeProvider) {
-  $routeProvider.
-      //Removed temporarily while focusing on single meeting principle.
-      when('/home', {templateUrl: 'partials/home.html',   controller: HomeCtrl}).
-      otherwise({redirectTo: '/home'});
-}]);
+var app = angular.module('socket-chatting', ['ngRoute']).
+config(function ($routeProvider, $locationProvider) {
+    $routeProvider.when('/customer-representative', {
+            templateUrl: '/partials/chatroom-rep.html',
+            controller: 'AppCtrl'
+    })
+    .when('/customer', {
+        templateUrl: '/partials/customer.html',
+        controller: 'AppCtrl'
+    });
+});
