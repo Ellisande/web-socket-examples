@@ -5,72 +5,13 @@ a {
     cursor: pointer;
 }
 
-.countdown-menu p{
-  padding-right: 5px;
-}
-
-.author {
-  color: dimgrey;
-}
-
-.rundown label{
-  color: dimgrey;
-  font-weight: bold;
-}
-
-.comment {
-  border-bottom: 1px solid #AAA;
-  margin-bottom: 5px;
-}
-
-img.brand-image{
-  height: 40px;
-  width: 60px;
-    float:left;
-}
-
-.uparrow{
-	background-image: url('/images/uparrow.png');
-	background-position: left;
-	background-repeat: no-repeat;
-	background-size: 20px 20px;
-	cursor: pointer;
-	padding-left: 20px;
-	font-size: 20px;
-}
-
-.by-line, footer{
-	font-size: x-small;
-	color: dimgrey;
-	font-weight: bold;
-}
-
 .unavailable {
     color: dimgrey;
 }
 
-.timer {
-    color: #AAA;
-    font-size: 1.8em;
-    font-weight: bold;
-}
-
-.timer li {
-    padding-right: 50%;
-}
-
-.timer.low {
-    color: rgba(255, 0, 0, 0.6);
-}
-
-.hero-unit {
-    /*background-image: url(../images/coffee_cup.png);*/
-    background-repeat: no-repeat;
-    background-position: right;
-}
-
 .available {
     fill: blue;
+    stroke: none;
 }
 
 .unavailable {
@@ -84,6 +25,32 @@ img.brand-image{
 
 .seat {
     cursor: pointer;
+}
+
+.buy-now {
+    margin-top: 5px;
+}
+
+.seat-row {
+    border: 1px solid #AAA;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 5px;
+    box-shadow: 5px 5px 5px #AAA;
+    text-align: center;
+}
+
+.row-name {
+    float: right;
+}
+
+.row-name, .main-stage {
+    color: dimgrey;
+    font-weight: bold;
+}
+
+.main-stage {
+    text-align: center;
 }
 
 progress {
