@@ -39,3 +39,5 @@ Npm and node js are required to run this application. You can get them at http:/
 * View the analytics page: http://localhost:3000/#/analytics
 
 ## Socket Chatting
+
+Special surprise for the presentation!
