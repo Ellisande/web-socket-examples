@@ -4,7 +4,6 @@
 
 
 // Demonstrate how to register services
-// In this case it is a simple value service.
 app
 .factory('socket', function ($rootScope) {
   var socket;
@@ -29,10 +28,7 @@ app
     },
     connect: function(){
       if(!socket){
-//          socket = io.connect('http://www.ellisande.com:3000/');
           socket = io.connect('http://localhost:3000/');
-      } else {
-        //socket.socket.connect();
       }
     },
     disconnect: function(){

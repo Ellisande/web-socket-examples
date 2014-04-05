@@ -2,7 +2,7 @@
 
 /* App Module */
 
-var app = angular.module('standup', ['standupFilters','ngRoute']).
+var app = angular.module('goldBuying', ['goldFilters','ngRoute']).
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
       //Removed temporarily while focusing on single meeting principle.

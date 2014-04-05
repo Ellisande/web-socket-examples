@@ -69,6 +69,7 @@ function HomeCtrl($scope, $location, socket, priceLockService) {
     
     $scope.duration = moment.duration(0);
     $scope.priceLockTimer = priceLockService($scope);
+    
     $scope.lockIn = function(){
         $scope.unlockMessage = undefined;
         $scope.priceLockTimer.lock($scope.pricePerOunce);
