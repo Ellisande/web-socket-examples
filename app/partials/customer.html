@@ -14,7 +14,6 @@
             <label>Who are you?</label>
             <input ng-model="name">
             <section class="chatroom-messages">
-                <h3>Messages</h3>
                 <section class="chatroom-messages-holder">
                     <section class="chatroom-activity">
                         <p class="tooltip" ng-repeat="message in messages" ng-class="{modmessage: message.user == 'chatroom',self: message.user == name,other: message.user != name}">{{message.user}}: {{message.text}}</p>
