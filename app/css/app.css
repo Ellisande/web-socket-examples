@@ -116,7 +116,7 @@ main {
     box-shadow: 0 15px 10px black;
     -webkit-transform: rotate(-3deg);
 }
-.chatroom-messages-holder:after {
+.representative .chatroom-messages-holder:after {
     -webkit-transform: rotate(3deg);
     right: 10px;
     left: auto;
