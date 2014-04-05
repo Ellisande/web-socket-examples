@@ -2,7 +2,7 @@
 
 /* App Module */
 
-var app = angular.module('standup', ['standupFilters','ngRoute','directives','services']).
+var app = angular.module('booking', ['ngRoute','directives','services']).
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
       //Removed temporarily while focusing on single meeting principle.
