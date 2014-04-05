@@ -1,0 +1,51 @@
+<article>
+    <section>
+        <form>
+            <label>What do you do?</label>
+            <select>
+                <option>Nothing</option>
+                <option>I have a J-O-B</option>
+                <option>I an enrolled in school</option>
+                <option>I actually go to school</option>
+            </select>
+            
+            <label>What is your mother's maiden name?</label>
+            <input type="text" ng-model="maidenname">
+            
+            <div ng-show="maidenname">
+                <label>{{maidenname}}, got it. How about your birthday?</label>
+                <input type="date" ng-model="bday">
+            </div>
+            
+            <div ng-show="maidenname && bday">
+                <label>Great. We're almost there. Last question, your Ssn? (Why do I have to provide my Ssn to buy a widget?)</label>
+                <input type="text" ng-model="ssn">
+            </div>
+        </form>
+        <p>
+            Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
+            <a href="">Say what?</a>
+        </p>
+    </section>
+</article>
+
+<article class="chatroom">
+    <label>Who are you?</label>
+    <input ng-model="name">
+    <section class="chatroom-messages">
+        <h3>Messages</h3>
+        <section class="chatroom-messages-holder">
+            <section class="chatroom-activity">
+                <p ng-repeat="message in messages" ng-class="{modmessage: message.user == 'chatroom'}">{{message.user}}: {{message.text}}</p>
+            </section>
+            <section role="chatroom-send-message">
+                <form name="sendmessage" ng-submit="sendMessage()" class="go-bottom">
+                    <div>
+                        <input ng-model="message" type="text" required>
+                        <label>Type a message and hit enter:</label>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </section>
+</article>

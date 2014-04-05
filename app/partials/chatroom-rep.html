@@ -1,0 +1,24 @@
+<article class="chatroom">
+    <section class="chatroom-messages">
+        <h3>Messages</h3>
+        <section class="chatroom-messages-holder">
+            <section class="chatroom-activity">
+                <p ng-repeat="message in messages" ng-class="{modmessage: message.user == 'chatroom'}">{{message.user}}: {{message.text}}</p>
+            </section>
+            <section role="chatroom-send-message">
+                <form name="sendmessage" ng-submit="sendMessage()" class="go-bottom">
+                    <div>
+                        <input ng-model="message" type="text" required>
+                        <label>Type a message and hit enter:</label>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </section>
+    <section role="chatroom-users-list" class="chatroom-user-list">
+        <h3>Users</h3>
+        <section class="chatroom-users-holder">
+            <p ng-repeat="user in users">{{user}}</p>
+        </section>
+    </section>
+</article>
