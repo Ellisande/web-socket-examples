@@ -1,4 +1,7 @@
-<div class="pure-u-1" ng-repeat="seatRows in allSeats" ng-mousemove="stealMouse()">
+<div class="pure-u-1-2 main-stage">
+    <span> Main Stage</span>
+</div>
+<div class="pure-u-1-2 seat-row"  ng-repeat="seatRows in allSeats" ng-mousemove="stealMouse()">
 	<span ng-repeat="seat in seatRows">
 	    <svg height="40" width="40">
             <circle 
@@ -15,8 +18,9 @@
             Sorry, your browser does not support inline SVG.  
         </svg> 
 	</span>
+	<div class="row-name">Row {{$index}}</div>
 </div>
 <div class="pure-u-1">
-    <button class="pure-button pure-button-primary">Buy these seats!</button>
+    <button class="pure-button pure-button-primary buy-now">Buy these seats!</button>
 </div>
 
